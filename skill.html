@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>챔피언 스킬 맞추기</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="skill.css">
+
+</head>
+<body>
+    <div class="skills-game-container">
+        <h1>챔피언 스킬 맞추기</h1>
+        <div id="skill-image-container">
+            <img id="skill-image" src="" alt="스킬 이미지" style="width:128px;height:128px;">
+        </div>
+        <form id="skill-form" autocomplete="off">
+            <div class="input-row">
+                                <div class="input-autocomplete-wrapper" style="position:relative;">
+                                    <input type="text" id="champion-input" placeholder="챔피언 이름 입력 (한글/영문)" required>
+                                    <div id="champion-autocomplete" class="autocomplete-list" style="display:none;"></div>
+                                </div>
+                                <div class="hint">이름 입력 후 키보드 <b>Q / W / E / R</b> 를 누르면 제출됩니다.</div>
+            </div>
+
+            <div class="qwer-grid" aria-label="스킬 선택">
+                <button type="button" class="qwer-btn" data-skill="Q">Q</button>
+                <button type="button" class="qwer-btn" data-skill="W">W</button>
+                <button type="button" class="qwer-btn" data-skill="E">E</button>
+                <button type="button" class="qwer-btn" data-skill="R">R</button>
+            </div>
+        </form>
+
+        <div id="result"></div>
+        <button id="next-btn" style="display:none;">다음 문제</button>
+        <button class="return-lobby" onclick="location.href='index.html'">로비로 돌아가기</button>
+    </div>
+    <script src="skill.js"></script>
+</body>
+</html>

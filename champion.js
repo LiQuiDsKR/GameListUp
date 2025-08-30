@@ -195,7 +195,7 @@
         popReveal(li);
       }
       guessOrder.unshift(hitId);
-      setMessage("정답! (최근 정답이 맨 앞)", "ok");
+      setMessage("정답!", "ok");
     }
 
     input.value = "";
@@ -296,32 +296,9 @@
     }
 
     startBtn.addEventListener("click", enterGame);
-    backBtn.addEventListener("click", backToLobby);
 
     form.addEventListener("submit", onSubmit);
     resetBtn.addEventListener("click", onReset);
-
-    // 테스트 버튼: 어려움 모드에서 가렌 제외 모두 맞춤
-    const testBtn = document.querySelector("#test-btn");
-    testBtn.addEventListener("click", () => {
-      if (mode !== "hard") {
-        setMessage("어려움 모드에서만 사용 가능합니다.", "error");
-        return;
-      }
-      guessed.clear();
-      guessOrder = [];
-      const garenId = champs.find(c => normalize(c.koName) === normalize("가렌") || normalize(c.enName) === normalize("Garen") || c.id === "Garen")?.id;
-      champs.forEach(c => {
-        if (c.id !== garenId) {
-          guessed.add(c.id);
-          guessOrder.push(c.id);
-        }
-      });
-      buildGrid();
-      saveProgress();
-      updateHUD();
-      setMessage("가렌 제외 모두 맞춤 처리됨.", "ok");
-    });
   }
 
   init();

@@ -40,6 +40,21 @@ body {
   padding: 0 16px;
 }
 
+.return-lobby {
+  margin-top: 4px;
+  background: transparent;
+  color: #9aa3b2;
+  border: 1px solid #2b3860;
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.return-lobby:hover {
+  color: #e6e9ef;
+  border-color: #3c4f86;
+}
+
 /* 로비 */
 .lobby {
   display: grid;
