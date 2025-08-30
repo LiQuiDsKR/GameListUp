@@ -240,3 +240,19 @@ body {
   color: var(--muted);
   padding: 18px 10px 40px;
 }
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo p {
+  padding: 0 8px;
+  font-size: 18px;
+}
+
+.logo img {
+  width: 32px;
+  height: auto;
+}
