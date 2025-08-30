@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LOL 챔피언 맞추기</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- 이 페이지는 Riot Data Dragon에서 최신 버전과 챔피언 목록을 동적으로 가져옵니다. -->
+</head>
+<body>
+  <header class="app-header">
+    <h1>LOL 챔피언 맞추기</h1>
+    <p class="sub">난이도 선택 후 시작하세요. 한글/영문 모두 인식합니다.</p>
+  </header>
+
+  <main class="container">
+    <!-- 로비 -->
+    <section id="lobby" class="lobby">
+      <div class="lobby-card">
+        <h2>게임 설정</h2>
+
+        <fieldset class="difficulty">
+          <legend>난이도</legend>
+          <label>
+            <input type="radio" name="difficulty" id="diff-easy" value="easy" checked />
+            쉬움 — 초상화는 보이고 이름만 가림
+          </label>
+          <label>
+            <input type="radio" name="difficulty" id="diff-hard" value="hard" />
+            어려움 — 힌트 없음, 시작 시 빈 화면. 맞출 때마다 카드가 생성되고 최근 정답이 맨 앞에 위치
+          </label>
+        </fieldset>
+
+        <button id="start-btn" type="button" class="start-btn">시작!</button>
+      </div>
+    </section>
+
+    <!-- 게임 -->
+    <section id="game" class="game" hidden>
+      <section class="controls">
+        <form id="guess-form" autocomplete="off">
+          <input
+            id="guess-input"
+            type="text"
+            placeholder="챔피언 이름을 입력하고 Enter (예: 아트록스 / Aatrox)"
+            aria-label="챔피언 이름 입력"
+            autofocus
+          />
+          <button type="submit" aria-label="정답 제출">제출</button>
+        </form>
+
+        <div class="hud">
+          <div class="stat">
+            <span id="guessed-count">0</span> / <span id="total-count">0</span> 맞힘
+          </div>
+          <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div id="progress-bar" class="progress-bar" style="width:0%"></div>
+          </div>
+          <div class="actions">
+            <button id="reset-btn" type="button" title="진행 초기화">초기화</button>
+            <button id="back-btn" type="button" title="로비로">로비</button>
+              <button id="test-btn" type="button" title="가렌 제외 모두 맞춤" style="background:#ffd700;color:#222;margin-left:8px;">테스트: 가렌 제외 모두 맞춤</button>
+          </div>
+        </div>
+
+        <div id="message" class="message" aria-live="polite"></div>
+      </section>
+
+      <section aria-label="챔피언 그리드">
+        <ul id="grid" class="grid" aria-live="polite"></ul>
+      </section>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>아이콘/데이터: Riot Data Dragon에서 자동 로드됩니다. 인터넷 연결이 필요합니다.</small>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
